@@ -48,7 +48,7 @@ class GoalEnv(Env):
         raise NotImplementedError
 
 
-class ParkingEnv(AbstractEnv, GoalEnv):
+class ParkingEnvWk1(AbstractEnv, GoalEnv):
     """
     A continuous control environment.
     It implements a reach-type task, where the agent observes their position and speed and must
