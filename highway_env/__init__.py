@@ -69,7 +69,7 @@ def register_highway_envs():
     # custon parking_wk1.py
     register(
         id='parking-wk1',
-        entry_point='highway_env.envs:ParkingEnv',
+        entry_point='highway_env.envs:ParkingEnvWk1',
     )
 
     register(
