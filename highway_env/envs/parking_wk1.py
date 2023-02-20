@@ -212,13 +212,3 @@ class ParkingEnvWk1(AbstractEnv, GoalEnv):
 
     def _is_truncated(self) -> bool:
         return False
-
-
-class ParkingEnvActionRepeat(ParkingEnv):
-    def __init__(self):
-        super().__init__({"policy_frequency": 1, "duration": 20})
-
-
-class ParkingEnvParkedVehicles(ParkingEnv):
-    def __init__(self):
-        super().__init__({"vehicles_count": 10})
