@@ -100,7 +100,10 @@ class ParkingEnv(AbstractEnv, GoalEnv):
             "scaling": 7,
             "controlled_vehicles": 1,
             "vehicles_count": 0,
-            "add_walls": True
+            "add_walls": True,
+            "y_offset": 10, 
+            "length": 8, 
+            "num_spots": 14
         })
         return config
 
@@ -135,8 +138,9 @@ class ParkingEnv(AbstractEnv, GoalEnv):
         width = 4.0
         lt = (LineType.CONTINUOUS, LineType.CONTINUOUS)
         x_offset = 0
-        y_offset = 10
+        y_offset = self.config["y_offset"]
         length = 8
+        spots = self.config["num_spots"]
         for k in range(spots):
             x = (k + 1 - spots // 2) * (width + x_offset) - width / 2
             net.add_lane("a", "b", StraightLane([x, y_offset], [x, y_offset+length], width=width, line_types=lt))
@@ -229,3 +233,7 @@ class ParkingEnvActionRepeat(ParkingEnv):
 class ParkingEnvParkedVehicles(ParkingEnv):
     def __init__(self):
         super().__init__({"vehicles_count": 10})
+        
+class ParkingEnvWk1(ParkingEnv):
+    def __init__(self):
+        super().__init__({"vehicles_count": 9, "num_spots": 10, "y_offset": 4})
